@@ -1,0 +1,67 @@
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+<div class="container">
+    <h3>Tabela de Pets</h3>
+    <table tr-ng-grid="" items="usuarios"
+           locale="pt-br"
+           page-items="4"
+           enable-filtering="false">
+        <thead>
+        <tr>
+            <th field-name="id"
+                display-name="Id"
+                cell-width="5%"
+                enable-filtering="false"
+                enable-sorting="true"
+                display-align="center"></th>
+
+            <th field-name="nome"
+                display-name="Pet"
+                cell-width="15%"
+                display-format="uppercase"
+                enable-filtering="true"></th>
+
+            <th field-name="foto"
+                display-name="Foto"
+                cell-width="25%"
+                display-align="center"
+                display-format="url">
+            </th>
+
+            <th field-name="nome_dono"
+                display-name="Dono"
+                cell-width="15%"
+                display-format="uppercase"
+                enable-filtering="true"></th>
+
+            <th field-name="cpf"
+                display-name="Registro"
+                cell-width="10%"
+                display-align="center"
+                display-format="cpf"></th>
+
+            <th field-name="hab"
+                display-name="Habilidade"
+                cell-width="15%"
+                display-align="right"></th>
+
+            <th display-name="Operação"
+                cell-width="20%"
+                enable-sorting="false"
+                display-align="center"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <button class="btn btn-default" ng-click="recuperaUsuario (gridDisplayItem.id)">
+                    Editar
+                </button>
+                <span>&nbsp;&nbsp;</span>
+                <button class="btn btn-default" ng-click="removeUsuario (gridDisplayItem.id)">
+                    Remover
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

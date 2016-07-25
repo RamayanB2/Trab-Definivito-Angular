@@ -1,0 +1,178 @@
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="page-header">
+                <h1 class="text-center"><span><img src="http://www.drainbo.com/wp-content/uploads/2014/07/pet-icon.png"></span>
+                    Cadastro de Pets</h1>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <!-- Exibe mensagens de erro - Alterei a largura do alert. Estava grosso demais.-->
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class='alert alert-danger' ng-show='cpfDuplicado'>
+                <span class='glyphicon glyphicon-remove'></span>
+                <strong>{{ msg }}</strong>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+    <!--  form-inline / form-horizontal -->
+    <form role="form"
+          class="form-horizontal"
+          name="formulario"
+          ng-submit="salvaUsuario(formData, formulario.$invalid)"
+          novalidate>
+
+        <!-- class="form-control input-sm"  -->
+
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-sm-3" for="nome">Nome do Dono:</label>
+                <div class="col-sm-6">
+                    <input type="text"
+                           id="nome_dono"
+                           name="nome_dono"
+                           maxlength="60"
+                           ng-class="{'form-control input-sm':true, submitted:submitted}"
+                           placeholder="Informe seu nome"
+                           ng-model="formData.nome_dono"
+                           required>
+                </div>
+                <br><br>
+                <div class="col-sm-3"></div>
+            </div>
+
+            <div class="row">
+                <label class="control-label col-sm-3" for="nome">Nome do Pet:</label>
+                <div class="col-sm-6">
+                    <input type="text"
+                           id="nome"
+                           name="nome"
+                           maxlength="60"
+                           ng-class="{'form-control input-sm':true, submitted:submitted}"
+                           placeholder="Informe o nome do seu pet"
+                           ng-model="formData.nome"
+                           required>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <div role="alert">
+                        <span class="error" ng-show="(formulario.nome.$dirty || submitted) && formulario.nome.$error.required">
+                            Campo de preenchimento obrigatorio!
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-sm-3" for="cpf">Num. Registro do Pet:</label>
+                <div class="col-sm-2">
+                    <input type="text"
+                           id="cpf"
+                           name="cpf"
+                           maxlength="5"
+                           ng-class="{'form-control input-sm':true, submitted:submitted, cpfDuplicado:cpfDuplicado}"
+                           ui-mask="9.999"
+                           placeholder="x.xxx"
+                           ng-model="formData.cpf"
+                           required>
+                    <!--  veja acima os atributos ui-mask e placeholder. Acrescentei a dependencia para ['ui-mask'] -->
+                </div>
+                <div class="col-sm-7"></div>
+            </div>
+
+            <!-- Registro x.xxx dos pets funciona como um cpf -->
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <div role="alert">
+                        <span class="error" ng-show="(formulario.cpf.$dirty || submitted) && formulario.cpf.$error.required">
+                            Campo de preenchimento obrigatorio!
+                        </span>
+                        <span class="error" ng-show="(formulario.cpf.$dirty || submitted) && formulario.cpf.$error.mask">
+                            Registro invalido.
+                        </span>
+                        <span class="error" ng-show="cpfDuplicado">
+                            {{ erroCPF }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-sm-3" for="foto">Foto do seu Pet:</label>
+                    <div class="col-sm-6">
+                        <input type="text"
+                               id="foto"
+                               name="foto"
+                               maxlength="60"
+                               ng-class="{'form-control input-sm':true, submitted:submitted}"
+                               placeholder=" .... .png ou ......jpg"
+                               ng-model="formData.foto"
+                               required>
+                    </div>
+                <div class="col-sm-6"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <div role="alert">
+                        <span class="error" ng-show="(formulario.foto.$dirty || submitted) && formulario.foto.$error.required">
+                           Campo de preenchimento obrigatorio!
+                        </span>
+                        <!-- formulario.dataNasc.$error.date ser� true se a data n�o for v�lida: 31/11, por exemplo. -->
+                        <span class="error" ng-show="(formulario.foto.$dirty || submitted) && formulario.foto.$error.date">
+                            Foto invalida.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-sm-3" for="hab">Habilidade do pet:</label>
+                <div class="col-sm-6">
+                    <input type="text"
+                           id="hab"
+                           name="hab"
+                           maxlength="60"
+                           ng-class="{'form-control input-sm':true, submitted:submitted}"
+                           placeholder="Informe a habilidade especial do set pet"
+                           ng-model="formData.hab">
+
+                    <!-- ng-class="{'form-control input-sm':true, submitted:submitted}" ==> Como configurar
+                         3 classes css. form-control e input-sm s�o duas classes css que estar�o sempre presentes
+                         e a terceira classe (submitted) s� existir� se o valor da vari�vel submitted for true. -->
+                </div>
+                <div class="col-sm-7"></div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-save"></span> Enviar!
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+    </form>
+</div>

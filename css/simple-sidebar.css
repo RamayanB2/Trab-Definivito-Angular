@@ -1,0 +1,151 @@
+
+
+#wrapper {
+    padding-left: 0px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #d3eb99;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+.container{
+    margin-left: 0px;
+    padding-left: -250px;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+#main{
+    width: 100%;
+    position: fixed;
+    padding-left: -350px;
+}
+
+#wrapper.toggled #main{
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+    font-family: 'Shift', sans-serif;
+    font-weight: bold;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #7fbf7f;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 24px;
+    line-height: 60px;
+    font-family: 'Shift', sans-serif;
+    font-weight: bold;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #000000;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #main {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #main {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+/* ====================== MEU CSS =============================*/
+
+.top_img{
+    float: right;
+    margin: 5px 5px;
+}
+.col-lg-12 h1{
+    font-size: 38px;
+    font-family: 'Shift', sans-serif;
+    font-weight: bold;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+.h3{
+    padding: 10px 0px;
+}
+
+#dog_bar{
+    position: absolute;
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+        <title>Curso de Angular</title>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/spacelab/bootstrap.min.css" />
+        <!--
+            <link rel="stylesheet" href="css/bootstrap.css">
+
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/spacelab/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/cerulean/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/yeti/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/cosmo/bootstrap.min.css" />
+
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/paper/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/darkly/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/cerulean/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/cosmo/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/cyborg/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/flatly/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/journal/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/lumen/bootstrap.min.css" />
+            <link rel="stylesheet" href="css/bootstrap-theme.css">
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/readable/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/sandstone/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/simplex/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/slate/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/superhero/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/slate/bootstrap.min.css" />
+        -->
+        <link rel="stylesheet" href="css/trNgGrid.min.css" />
+        <link href="css/simple-sidebar.css" rel="stylesheet">
+        <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+        <link rel="icon" type="image/png" href="http://thecottagedogdaycare.com/wp-content/uploads/2013/03/dog-head-icon-SMALL.gif">
+
+        <script src="js/vendor/jquery-1.12.3.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+
+        <script src="js/vendor/angular.js"></script>
+        <script src="js/vendor/angular-animate.js"></script>
+        <script src="js/vendor/angular-ui-router.js"></script>
+        <script src="js/vendor/mask.js"></script>
+        <script src="js/vendor/trNgGrid.js"></script>
+
+        <script src="js/filtros.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/servico/usuarioServiceTest.js"></script>
+        <script src="js/servico/listaDeUsuariosServiceTest.js"></script>
+
+        <script src="js/controller/usuarioCtrl.js"></script>
+        <script src="js/controller/exibeUsuarioCtrl.js"></script>
+        <script src="js/controller/exibeUsuariosCtrl.js"></script>
+        <script src="js/controller/homeCtrl.js"></script>
+        <script src="js/controller/quemSomosCtrl.js"></script>
+
+        <script src="js/vendor/angular-locale_pt-br.js"></script>
+
+        <!-- Menu Toggle Script -->
+        <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
+
+        <style>
+            .ng-invalid.ng-dirty {
+                border-color: red;
+            }
+            .ng-invalid.submitted {
+                border-color: red;
+            }
+            .ng-valid.ng-dirty {
+                border-color: #787A89;
+            }
+            /*  Mensagens de erro de cada campo */
+            .error {
+                font-size: 11.5px;
+            }
+            /*  Caixa vermelha no topo com 1 mensagem de erro.  */
+            .alert {
+                padding: 8px;
+                margin-bottom: 19px;
+            }
+            .ng-dirty.cpfDuplicado {
+                border-color: red;
+            }
+            .navbar {
+                margin-bottom: 0px;
+            }
+            .panel-title {
+                padding: 0px 0px 10px 0px
+            }
+            .panel {
+                margin-bottom: 0px;
+                padding-top: 12px;
+            }
+            html,body {
+                background:white;
+                font-family:arial,sans-serif;
+            }
+            .jumbotron {
+                padding-top: 128px;
+                padding-bottom: 128px;
+                margin-bottom: 0px;
+                color: inherit;
+                background-color: white;
+            }
+            .table {
+                width: 90%;
+                max-width: 90%;
+                margin-bottom: 20px;
+            }
+            .table>thead>tr>th,
+            .table>tbody>tr>th,
+            .table>tfoot>tr>th,
+            .table>thead>tr>td,
+            .table>tbody>tr>td,
+            .table>tfoot>tr>td {
+                padding: 1px;
+                line-height: 1.0;
+                vertical-align: middle;
+            }
+            .btn.btn-default.ng-scope {
+                padding: 3px 3px;
+                font-size: 12px;
+            }
+            body {
+                font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 12px;
+            }
+            .input-sm {
+                height: 28px;
+            }
+            .text-right {
+                text-align: right;
+                padding-right: 5px;
+            }
+        </style>
+
+    <!-- Foi preciso acrescentar o estilo acima para exibir as caixas de texto em vermelho qdo está errado. -->
+    </head>
+    <body>
+    <div class="container">
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">Pet ShowTime<span><img id="dog_bar" src="http://thecottagedogdaycare.com/wp-content/uploads/2013/03/dog-head-icon-SMALL.gif"></span></li>
+                    <li><a ui-sref="home">Inicio</a></li>
+                    <li><a data-ui-sref="editaUsuario" data-ui-sref-opts="{reload: true}">Cadastre seu Pet <span class="glyphicon glyphicon-save"></span></a></li>
+                    <li><a data-ui-sref="exibeUsuarios" data-ui-sref-opts="{reload: true}">Busque um Pet <span class="glyphicon glyphicon-search"></span></a></li>
+                    <li><a ui-sref="quemSomos">Contate-nos</a></li>
+                    <br><br><br><br>
+                    <li><a href="https://github.com/RamayanB2/Trab_Angular_LabWeb"><span><img src="pics/git_icon.png"></span>Nosso GitHub</a></li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <div id="main" ui-view>
+
+            </div>
+            <!-- /#wrapper -->
+
+            <div class="panel-footer">
+                Site desenvolvido por Ramayan Bellatrix - Todos os direitos reservados
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

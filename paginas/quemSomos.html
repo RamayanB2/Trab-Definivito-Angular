@@ -1,0 +1,109 @@
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+<div>
+    <!--Págian de contato-->
+    <div class="container-fluid">
+        <div class="col-lg-10">
+            <div class="panel panel-success">
+                <div class="panel-heading text-center">
+                    <h1>Contate-nos</h1>
+                </div>
+
+                <div class="panel-title">
+                    <h2 class="text-center">Nos envie uma mensagem!</h2>
+                </div>
+
+                <div class="panel-body">
+
+                    <!-- começo do formulario -->
+                    <form role="form"
+                          class="form-horizontal"
+                          name="formulario"
+                          ng-submit="formulario.$valid && processaContato()"
+                          novalidate>
+
+                        <!-- class="form-control input-sm"  -->
+                        <div class="form-group">
+                            <label class="control-label col-xs-2" for="nome">Nome:</label>
+                            <div class="col-xs-10 col-sm-offset-2">
+                                <input type="text"
+                                       id="nome"
+                                       name="nome"
+                                       maxlength="60"
+                                       class="form-control"
+                                       ng-class="{'form-control input-sm':true, submitted:submitted}"
+                                       placeholder="Informe seu nome"
+                                       ng-model="formData.nome"
+                                       required>
+                            </div>
+
+                            <label class="control-label col-xs-2" for="email">Email:</label>
+                            <div class="col-xs-10 col-sm-offset-2">
+                                <input type="email"
+                                       id="email"
+                                       name="email"
+                                       class="form-control"
+                                       maxlength="40"
+                                       ng-class="{'form-control input-sm':true, submitted:submitted}"
+                                       placeholder="Informe seu email"
+                                       ng-model="formData.email"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-2" for="assunto">Assunto:</label>
+                                <div class="col-xs-9 col-sm-offset-2">
+                                    <select id="assunto"
+                                            name="assunto"
+                                            class="form-control"
+                                            ng-class="{'form-control input-sm':true, submitted:submitted}"
+                                            ng-model="formData.assunto"
+                                            ng-options="f.id as f.assunto for f in assuntos"
+                                            required>
+                                        <option value="">-- Escolha um assunto --</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <label class="control-label col-xs-2" for="msg">Mensagem:</label>
+                            <div class="col-xs-10 col-sm-offset-2">
+                                                <textarea id="msg"
+                                                          name="msg"
+                                                          class="form-control"
+                                                          placeholder="Informe a mensagem"
+                                                          rows="5"
+                                                          ng-maxlength="200"
+                                                          ng-class="{'form-control input-sm':true, submitted:submitted}"
+                                                          ng-model="formData.msg"
+                                                          required>
+                                                </textarea>
+                            </div>
+
+                            <div class="col-xs-10 col-sm-offset-2">
+                                                    <span class="error" ng-show="
+                                                    ((formulario.nome.$dirty || submitted) && formulario.nome.$error.required)||
+                                                    ((formulario.email.$dirty || submitted) && formulario.email.$error.required)||
+                                                    ((formulario.assunto.$dirty || submitted) && formulario.assunto.$error.required)||
+                                                    ((formulario.msg.$dirty || submitted) && formulario.msg.$error.required)">
+                                                        *Campo de preenchimento obrigatório!
+                                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-save"></span> Enviar!
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--Fim do formulario -->
+
+                    {{ respostaNome }}<br/>
+                    {{ respostaEmail }}<br/>
+                    {{ respostaAssunto }}<br/>
+                    {{ respostaMsg }}<br/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

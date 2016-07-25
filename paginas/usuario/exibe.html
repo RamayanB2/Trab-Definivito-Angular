@@ -1,0 +1,82 @@
+
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="page-header">
+                    <h1><span>
+                        <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/80618-200.png"></span> Cadastro de Pets</h1>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div id="messages" class="well" ng-show="msg">{{ msg }}</div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+        <form>
+            <input type="hidden" name="id" value="{{formData.id}}">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div id="nome-group" class="form-group">
+                        <label>Nome do Pet: </label> {{formData.nome}}
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div id="nome_dono-group" class="form-group">
+                        <label>Dono: </label> {{formData.nome_dono}}
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div id="cpf-group" class="form-group">
+                        <label>Registro: </label> {{formData.cpf }}
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div id="foto-group" class="form-group">
+                        <label>Foto: </label> <img src= {{formData.foto}} >
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div id="hab-group" class="form-group">
+                        <label>Habilidade: </label> {{formData.hab}}
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div id="hr-group" class="form-group">
+                        <button id="editar" class="btn btn-primary" name="editar" ng-hide="isRemovido()" ng-click="recuperaUsuario(formData.id)">
+                            <span class="glyphicon glyphicon-edit"></span> Alterar
+                        </button>
+                        <button id="remover" class="btn btn-danger" name="remover" ng-hide="isRemovido()" ng-click="removeUsuario(formData.id)">
+                            <span class="glyphicon glyphicon-remove"></span> Remover
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </form>
+    </div>

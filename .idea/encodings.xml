@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../exercicio-17-inclusao-alteracao-exclusao-e-busca-completo/paginas/usuario/exibeUsuarios.html" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/Roteiro.txt" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/js/app.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/js/controller/exibeUsuarioCtrl.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/js/controller/homeCtrl.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/js/controller/quemSomosCtrl.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/js/controller/usuarioCtrl.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/js/filtros.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/js/servico/listaDeUsuariosServiceTest.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/js/servico/usuarioServiceTest.js" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/paginas/home.html" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/paginas/quemSomos.html" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/paginas/usuario/exibe.html" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/paginas/usuario/exibeUsuarios.html" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/paginas/usuario/form.html" charset="ISO-8859-1" />
+  </component>
+</project>
