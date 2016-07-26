@@ -149,3 +149,7 @@
 #dog_bar{
     position: absolute;
 }
+
+.extra_pad{
+    padding-left: 25px;
+}

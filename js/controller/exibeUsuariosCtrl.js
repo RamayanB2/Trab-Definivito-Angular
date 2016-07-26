@@ -2,7 +2,7 @@ angular.module('app').controller('exibeUsuariosCtrl', function($scope, listaDeUs
 
     listaDeUsuariosService.recuperaLista()
     .then(function(resposta) {
-        console.log(resposta.usuarios);
+        //console.log(resposta.usuarios);
         $scope.usuarios = resposta.usuarios;
     });
 

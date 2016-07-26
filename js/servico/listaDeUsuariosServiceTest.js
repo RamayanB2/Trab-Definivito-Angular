@@ -14,53 +14,56 @@ angular.module('app')
 
     return {
         salva: function (formData) {
+            console.log("porra");
+            var podeProseguir = !existeRegistro(formData);
+            if(podeProseguir) {
+                if (formData.id === null) {
+                    var deferred = $q.defer();
 
-            if (formData.id === null) {
-                var deferred = $q.defer();
-
-                formData.id = ++contador;
-                mapDeUsuarios[formData.id] = formData;
-
-                resposta = {
-                    sucesso: true,
-                    usuario: formData,
-                    msg: 'Pet cadastrado com sucesso!'
-                }
-
-                // É preciso salvar o usuário no serviço pois o próximo estado a ser
-                // exibido será 'exibeUsuario' que irá buscar o usuário no serviço.
-                usuarioService.setDados(resposta);
-
-                deferred.resolve(resposta);
-                return deferred.promise;
-            }
-            else {
-                var deferred = $q.defer();
-                var resposta;
-
-                if (formData.id in mapDeUsuarios) {
+                    formData.id = ++contador;
                     mapDeUsuarios[formData.id] = formData;
 
                     resposta = {
                         sucesso: true,
                         usuario: formData,
-                        msg: 'Pet alterado com sucesso!'
+                        msg: 'Pet cadastrado com sucesso!'
                     }
+                    // É preciso salvar o usuário no serviço pois o próximo estado a ser
+                    // exibido será 'exibeUsuario' que irá buscar o usuário no serviço.
+                    usuarioService.setDados(resposta);
+
+                    deferred.resolve(resposta);
+                    return deferred.promise;
                 }
                 else {
-                    resposta = {
-                        sucesso: false,
-                        usuario: formData,
-                        msg: 'Pet não encontrado.'
+                    var deferred = $q.defer();
+                    var resposta;
+
+                    if (formData.id in mapDeUsuarios) {
+                        mapDeUsuarios[formData.id] = formData;
+
+                        resposta = {
+                            sucesso: true,
+                            usuario: formData,
+                            msg: 'Pet alterado com sucesso!'
+                        }
                     }
-                };
+                    else {
+                        resposta = {
+                            sucesso: false,
+                            usuario: formData,
+                            msg: 'Pet não encontrado.'
+                        }
+                    }
+                    ;
 
-                // É preciso salvar o usuário no serviço pois o próximo estado a ser
-                // exibido será 'exibeUsuario' que irá buscar o usuário no serviço.
-                usuarioService.setDados(resposta);
+                    // É preciso salvar o usuário no serviço pois o próximo estado a ser
+                    // exibido será 'exibeUsuario' que irá buscar o usuário no serviço.
+                    usuarioService.setDados(resposta);
 
-                deferred.resolve(resposta);
-                return deferred.promise;
+                    deferred.resolve(resposta);
+                    return deferred.promise;
+                }
             }
         },
 
@@ -143,4 +146,17 @@ angular.module('app')
             return deferred.promise;
         }
     }
+
+    function existeRegistro(formData){
+        var jaExiste=false;
+        for(var i in mapDeUsuarios) {
+            if (mapDeUsuarios[i]['cpf'] == formData.cpf) {
+                jaExiste = true;
+                alert("Esse numero de registro já está cadastrado!!!");
+            }
+        }
+        return jaExiste;
+    }
+
 });
+

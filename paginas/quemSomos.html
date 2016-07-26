@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
-<div>
-    <!--Págian de contato-->
+<div ng-controller="ContatoCtrl">
+    <!--Página de contato-->
     <div class="container-fluid">
         <div class="col-lg-10">
             <div class="panel panel-success">
@@ -49,8 +49,8 @@
                                        required>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-xs-2" for="assunto">Assunto:</label>
-                                <div class="col-xs-9 col-sm-offset-2">
+                                <label class="control-label col-xs-2 " for="assunto">Assunto:</label>
+                                <div class="col-xs-9 col-sm-offset-2 extra_pad">
                                     <select id="assunto"
                                             name="assunto"
                                             class="form-control"
@@ -97,11 +97,10 @@
                         </div>
                     </form>
                     <!--Fim do formulario -->
-
-                    {{ respostaNome }}<br/>
-                    {{ respostaEmail }}<br/>
-                    {{ respostaAssunto }}<br/>
-                    {{ respostaMsg }}<br/>
+                    {{ respostaNome }}<br>
+                    {{ respostaEmail }}<br>
+                    {{ respostaAssunto }}<br>
+                    {{ respostaMsg }}
                 </div>
             </div>
         </div>

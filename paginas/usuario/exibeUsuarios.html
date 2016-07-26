@@ -1,9 +1,9 @@
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 <div class="container">
-    <h3>Tabela de Pets</h3>
+    <h3>Nossis Pets Registrados</h3>
     <table tr-ng-grid="" items="usuarios"
            locale="pt-br"
-           page-items="4"
+           page-items="10"
            enable-filtering="false">
         <thead>
         <tr>
@@ -23,9 +23,7 @@
             <th field-name="foto"
                 display-name="Foto"
                 cell-width="25%"
-                display-align="center"
-                display-format="url">
-            </th>
+                display-align="center"></th>
 
             <th field-name="nome_dono"
                 display-name="Dono"
@@ -51,6 +49,7 @@
         </tr>
         </thead>
         <tbody>
+
         <tr>
             <td>
                 <button class="btn btn-default" ng-click="recuperaUsuario (gridDisplayItem.id)">
@@ -62,6 +61,15 @@
                 </button>
             </td>
         </tr>
+
         </tbody>
     </table>
 </div>
+
+<!--
+<tr>
+    <td>
+        <img ng-src="formData.foto">
+    </td>
+</tr>
+-->

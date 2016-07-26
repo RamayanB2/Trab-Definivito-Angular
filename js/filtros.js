@@ -22,4 +22,3 @@ angular.module('filtros').filter('foto', function (){
         return foto;
     };
 });
-

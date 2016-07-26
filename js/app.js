@@ -94,3 +94,41 @@ angular.module('app')
 
         $urlRouterProvider.otherwise('/');
     });
+
+angular.module('app').controller('ContatoCtrl', function($scope) {
+
+    $scope.formData = {
+        nome: '',
+        email:'',
+        assunto:'',
+        msg:''
+
+    };
+
+    $scope.assuntos = [
+        {id :1, assunto: "Duvidas"},
+        {id: 2, assunto: "Sugestoes"},
+        {id: 3, assunto: "Queixas"},
+        {id: 4, assunto: "Meu pet sabe falar!"}
+    ];
+
+    $scope.submitted = false;
+    $scope.hoje = new Date();  // Data de hoje - javascript
+
+    $scope.processaContato = function() {
+
+        $scope.submitted = true;
+
+        $scope.respostaNome = 'Nome = ' + $scope.formData.nome;
+        $scope.respostaEmail = 'Email = ' + $scope.formData.email;
+
+        if ($scope.formData.assunto === '' || $scope.formData.assunto == undefined)
+            $scope.respostaAssunto = 'Faixa Etária: Não selecionada.';
+        else {
+            var assunto = parseInt($scope.formData.assunto);
+            $scope.respostaAssunto = 'Assunto: ' + $scope.assuntos[assunto-1].assunto;
+        }
+
+        $scope.respostaMsg = 'Mensagem = ' + $scope.formData.msg;
+    }
+});

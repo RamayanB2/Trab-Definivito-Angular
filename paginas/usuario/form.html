@@ -114,7 +114,7 @@
             <div class="row">
                 <label class="control-label col-sm-3" for="foto">Foto do seu Pet:</label>
                     <div class="col-sm-6">
-                        <input type="text"
+                        <input type="url"
                                id="foto"
                                name="foto"
                                maxlength="60"
@@ -132,8 +132,8 @@
                         <span class="error" ng-show="(formulario.foto.$dirty || submitted) && formulario.foto.$error.required">
                            Campo de preenchimento obrigatorio!
                         </span>
-                        <!-- formulario.dataNasc.$error.date ser� true se a data n�o for v�lida: 31/11, por exemplo. -->
-                        <span class="error" ng-show="(formulario.foto.$dirty || submitted) && formulario.foto.$error.date">
+                        <!-- formulario.dataNasc.$error.date sera true se a foto n for valida -->
+                        <span class="error" ng-show="(formulario.foto.$dirty || submitted) && formulario.foto.$error.foto">
                             Foto invalida.
                         </span>
                     </div>
@@ -150,12 +150,9 @@
                            name="hab"
                            maxlength="60"
                            ng-class="{'form-control input-sm':true, submitted:submitted}"
-                           placeholder="Informe a habilidade especial do set pet"
+                           placeholder="Informe a habilidade especial do seu pet"
                            ng-model="formData.hab">
 
-                    <!-- ng-class="{'form-control input-sm':true, submitted:submitted}" ==> Como configurar
-                         3 classes css. form-control e input-sm s�o duas classes css que estar�o sempre presentes
-                         e a terceira classe (submitted) s� existir� se o valor da vari�vel submitted for true. -->
                 </div>
                 <div class="col-sm-7"></div>
             </div>
