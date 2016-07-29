@@ -32,10 +32,15 @@
 }
 
 .container{
+    width:100%;
     margin-left: 0px;
     padding-left: -250px;
-    margin-right: 0px;
+    margin-right: 10px;
     padding-right: 0px;
+}
+
+.container-fluid{
+    width: 100%;
 }
 
 #main{
@@ -152,4 +157,14 @@
 
 .extra_pad{
     padding-left: 25px;
+}
+
+.extra_pad2{
+    padding-left: 70px;
+}
+
+.right_img img{
+    margin-top: 300px;
+    display: inline-block;
+    width: auto;
 }
