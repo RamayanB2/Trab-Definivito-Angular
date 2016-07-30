@@ -16,8 +16,7 @@ angular.module('app')
         salva: function (formData) {
             console.log("porra");
             var podeProseguir = !existeRegistro(formData);
-            if(podeProseguir) {
-                if (formData.id === null) {
+                if (podeProseguir && formData.id === null) {
                     var deferred = $q.defer();
 
                     formData.id = ++contador;
@@ -52,7 +51,7 @@ angular.module('app')
                         resposta = {
                             sucesso: false,
                             usuario: formData,
-                            msg: 'Pet não encontrado.'
+                            msg: 'Pet não cadastrado. Esse numero de registro já existe!'
                         }
                     }
                     ;
@@ -64,7 +63,7 @@ angular.module('app')
                     deferred.resolve(resposta);
                     return deferred.promise;
                 }
-            }
+
         },
 
         recupera: function(id) {
@@ -73,7 +72,7 @@ angular.module('app')
             if (id in mapDeUsuarios){
                 resposta = {
                     sucesso: true,
-                    usuario: mapDeUsuarios[id],
+                    usuario: angular.copy(mapDeUsuarios[id]),
                     msg: ''
                 }
             }
@@ -81,7 +80,7 @@ angular.module('app')
                 resposta = {
                     sucesso: false,
                     usuario: null,
-                    msg: 'Pet não encontrado.'
+                    msg: 'Pet não cadastrado. Esse numero de registro já existe!'
                 }
             };
             usuarioService.setDados(resposta);
@@ -152,7 +151,7 @@ angular.module('app')
         for(var i in mapDeUsuarios) {
             if (mapDeUsuarios[i]['cpf'] == formData.cpf) {
                 jaExiste = true;
-                alert("Esse numero de registro já está cadastrado!!!");
+                //alert("Esse numero de registro já está cadastrado!!!");
             }
         }
         return jaExiste;
